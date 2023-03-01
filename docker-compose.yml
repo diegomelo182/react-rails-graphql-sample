@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  api:
+    image: rails-graphql-api
+    build:
+      dockerfile: ./docker/Dockerfile.api
+      target: api
+      context: .
+    ports:
+      - 3000:3000
+
+  api-unit-test:
+    image: rails-graphql-unit-test
+    build:
+      dockerfile: ./docker/Dockerfile.api
+      target: unit-test
+      context: .
